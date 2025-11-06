@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub - Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+        }
+        header {
+            background: #3A6D8C;
+            padding: 15px 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: white;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            width: 180px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            text-align: center;
+            margin: 10px;
+        }
+        footer {
+            background: #3A6D8C;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        button {
+            padding: 12px 25px;
+            background: #3A6D8C;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>LearnHub</h2>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="sub.html">Subjects</a>
+        <a href="tutorials.html">Tutorials</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="singin.html">Sign In</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Welcome to LearnHub</h1>
+    <p>Your Senior High Learning Companion</p>
+    <a href="subjects.html"><button>Start Learning</button></a>
+</section>
+
+<section style="padding:40px;">
+    <h2 style="text-align:center;">Subjects</h2>
+    <div class="card-container">
+        <div class="card">ICT</div>
+        <div class="card">STEM</div>
+        <div class="card">ABM</div>
+        <div class="card">HUMSS</div>
+        <div class="card">TVL</div>
+    </div>
+</section>
+
+<footer>
+    LearnHub • Senior High School Tutorials
+</footer>
+
+</body>
+</html>
