@@ -23,7 +23,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
 }
 
 .logo {
@@ -53,7 +53,6 @@ header {
     padding: 8px 15px;
     border: 1px solid var(--primary-color);
     border-radius: 20px;
-    transition: all 0.3s ease;
 }
 
 .header-links a:hover {
@@ -108,14 +107,14 @@ header {
     z-index: 1000;
 }
 
-/* Add these styles after the profile-dropdown class */
+
 .profile-dropdown {
-    min-height: 300px;  /* Default minimum height */
-    min-width: 300px;   /* Default minimum width */
-    max-width: 400px;   /* Maximum width */
+    min-height: 300px;  
+    min-width: 300px;   
+    max-width: 400px;  
 }
 
-.user-profile:hover .profile-dropdown {
+.user-profile:tap .profile-dropdown {
     display: block;
 }
 
@@ -144,23 +143,13 @@ header {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+   
 }
 
 .save-btn:hover {
     background: var(--accent-color);
 }
 
-/* Add overlay when profile is shown */
-.user-profile.active::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
 }
 
 nav {
@@ -181,7 +170,6 @@ nav a {
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 4px;
-    transition: background-color 0.3s;
 }
 
 nav a:hover {
@@ -338,91 +326,4 @@ nav a.active {
     color: rgb(255, 255, 255);
 }
 
-/* --- USER PROFILE STYLE --- */
-.user-profile {
-    position: relative;
-}
 
-#profile-icon {
-    font-size: 22px;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-#profile-icon:hover {
-    color: #4A90E2;
-}
-
-/* Hide profile by default */
-.profile-dropdown {
-    display: none; /* hide until clicked */
-    position: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-/* Profile popup box */
-.profile-info {
-    background: #fff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    width: 320px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    animation: fadeIn 0.3s ease;
-}
-
-.profile-info h3 {
-    margin-bottom: 15px;
-    color: #4A90E2;
-}
-
-.profile-info input {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.save-btn {
-    background-color: #4A90E2;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.save-btn:hover {
-    background-color: #3b7ac2;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-
-/* make save button match input width and centered */
-.save-btn {
-    width: 90%;
-    padding: 8px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 6px;
-}
