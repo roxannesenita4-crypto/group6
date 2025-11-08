@@ -1,0 +1,43 @@
+.study-tips-page {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.study-tips-page .content-box {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.study-tips-page .content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.study-tips-page ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.study-tips-page ul li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.study-tips-page ul li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Style for active navigation link */
+nav a.active {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+}

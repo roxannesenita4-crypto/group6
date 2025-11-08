@@ -1,0 +1,49 @@
+.essay-writing-page {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.essay-writing-page .content-box {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.essay-writing-page .content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.essay-writing-page ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.essay-writing-page ul li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.essay-writing-page ul li:before {
+    content: "✓";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.essay-writing-page .section-heading {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Style for active navigation link */
+nav a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
