@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About StudyBuddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="VERSION02.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="brand-logo">
+                <div class="brand-name">
+                    <span class="brand-study">Study</span>Buddy
+                </div>
+            </div>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="VERSION02.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-pill">
+                    <input class="search-input" placeholder="Search for topics..." aria-label="Search">
+                    <button class="search-submit" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <button class="auth-btn login-btn" onclick="openModal('login')">Login</button>
+                <button class="auth-btn signup-btn" onclick="openModal('signup')">Sign Up</button>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <main class="about-page">
+        <section class="about-hero">
+            <div class="container">
+                <h1>About StudyBuddy</h1>
+                <p class="lead">Your Ultimate Learning Companion</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="mission-section">
+                    <h2>Our Mission</h2>
+                    <p>At StudyBuddy, we're committed to making learning accessible, engaging, and effective for students worldwide. Our platform combines cutting-edge technology with proven learning methodologies to help you achieve your academic goals.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Smart Learning</h3>
+                        <p>Adaptive learning paths that adjust to your progress and learning style.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Community</h3>
+                        <p>Connect with fellow students and share knowledge in our collaborative environment.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Track Progress</h3>
+                        <p>Monitor your learning journey with detailed analytics and insights.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock assistance to help you overcome learning challenges.</p>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h2>Our Team</h2>
+                    <p>Behind StudyBuddy is a passionate team of educators, technologists, and learning experts dedicated to transforming education.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Auth Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('login')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Login</button>
+                <p class="form-footer">
+                    Don't have an account? <a href="#" onclick="switchModal('login', 'signup')">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('signup')">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm" onsubmit="return handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Sign Up</button>
+                <p class="form-footer">
+                    Already have an account? <a href="#" onclick="switchModal('signup', 'login')">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'flex';
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'none';
+        }
+
+        function switchModal(from, to) {
+            closeModal(from);
+            openModal(to);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Handle form submissions
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Add your login logic here
+            console.log('Login:', { email, password });
+            
+            // Close modal after successful login
+            closeModal('login');
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            
+            // Add your signup logic here
+            console.log('Signup:', { name, email, password });
+            
+            // Close modal after successful signup
+            closeModal('signup');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - StudyBuddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="VERSION02.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="brand-logo">
+                <div class="brand-name"><span class="brand-study">Study</span>Buddy</div>
+            </div>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="VERSION02.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-pill">
+                    <input class="search-input" placeholder="Search for topics..." aria-label="Search">
+                    <button class="search-submit" aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="profile-btn" aria-label="Profile"><i class="fas fa-user-circle"></i></button>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <main style="padding-top:88px;">
+        <section class="container">
+            <h1 id="dashTitle">Your Dashboard</h1>
+            <p id="dashSub" class="lead">Quick access to quizzes, study plans, and booking sessions.</p>
+
+            <div class="dashboard-grid" style="display:grid; grid-template-columns: 1fr 360px; gap:2rem; margin-top:1.5rem;">
+                <div>
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem;">
+                        <button class="btn btn-primary" onclick="startGetStarted()">Get Started</button>
+                        <button class="btn btn-outline" onclick="openQuizList()">Take a Quiz</button>
+                        <button class="btn btn-outline" onclick="openBookingModal()">Book a Session</button>
+                    </div>
+
+                    <section id="quizzes" style="margin-top:1rem;">
+                        <h2>Available Quizzes</h2>
+                        <div class="features-grid" id="quizList">
+                            <!-- populated by JS -->
+                        </div>
+                    </section>
+
+                    <section id="recentResults" style="margin-top:2rem;">
+                        <h2>Recent Quiz Results</h2>
+                        <div id="resultsList" style="display:flex; flex-direction:column; gap:0.75rem;">
+                        </div>
+                    </section>
+                </div>
+
+                <aside style="min-width:300px;">
+                    <div style="background:var(--white); padding:1.25rem; border-radius:12px; box-shadow:var(--shadow-md);">
+                        <h3>Upcoming Bookings</h3>
+                        <div id="bookingsList" style="margin-top:0.75rem; display:flex; flex-direction:column; gap:0.5rem;">
+                            <!-- bookings populated here -->
+                        </div>
+                    </div>
+
+                    <div style="margin-top:1rem; background:var(--white); padding:1.25rem; border-radius:12px; box-shadow:var(--shadow-md);">
+                        <h3>Study Tips</h3>
+                        <p style="color:var(--muted);">Set short goals, take breaks, and review actively. Use quizzes to check your recall.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content" style="max-width:700px; width:90%;">
+            <span class="close-btn" onclick="closeQuizModal()">&times;</span>
+            <h2 id="quizTitle">Quiz</h2>
+            <div id="quizBody">
+                <!-- questions inserted here -->
+            </div>
+            <div style="margin-top:1rem; text-align:right;">
+                <button class="btn btn-primary" id="submitQuizBtn" onclick="submitQuiz()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeBookingModal()">&times;</span>
+            <h2>Book a Tutoring Session</h2>
+            <form id="bookingForm" onsubmit="return submitBooking(event)">
+                <div class="form-group">
+                    <label for="topic">Topic</label>
+                    <input type="text" id="topic" required placeholder="e.g., Calculus — Integration">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="time" id="time" required>
+                </div>
+                <button type="submit" class="auth-submit">Book Session</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Get Started Modal -->
+    <div id="getStartedModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeGetStarted()">&times;</span>
+            <h2>Get Started with a Study Plan</h2>
+            <p>We'll create a simple 3-step plan for you to begin studying effectively.</p>
+            <ol>
+                <li>Create routine (30-min sessions)</li>
+                <li>Select 2 priority topics</li>
+                <li>Take one quiz per topic weekly</li>
+            </ol>
+            <div style="text-align:right; margin-top:1rem;"><button class="btn btn-primary" onclick="completeGetStarted()">I'm ready</button></div>
+        </div>
+    </div>
+
+    <script>
+        // LocalStorage keys
+        const KEY_LOGGED_IN = 'sb_loggedIn';
+        const KEY_USER = 'sb_user';
+        const KEY_QUIZ_RESULTS = 'sb_quizResults';
+        const KEY_BOOKINGS = 'sb_bookings';
+
+        function isLoggedIn() {
+            return localStorage.getItem(KEY_LOGGED_IN) === 'true';
+        }
+
+        function requireLogin() {
+            if (!isLoggedIn()) {
+                // redirect to account page (which will show login modal)
+                window.location.href = 'account.html';
+                return false;
+            }
+            return true;
+        }
+
+        // Sample quizzes
+        const QUIZZES = [
+            { id: 'q1', title: 'Algebra Basics', questions: [
+                {q:'What is 2+2?', choices:['3','4','5'], a:1},
+                {q:'Solve 3x = 12. x = ?', choices:['2','3','4'], a:2}
+            ]},
+            { id: 'q2', title: 'Physics: Kinematics', questions: [
+                {q:'Acceleration is change in?', choices:['Velocity','Distance','Time'], a:0},
+                {q:'Unit of acceleration?', choices:['m/s','m/s^2','m'], a:1}
+            ]}
+        ];
+
+        function openQuizList() {
+            if (!requireLogin()) return;
+            const list = document.getElementById('quizList');
+            list.innerHTML = '';
+            QUIZZES.forEach(q => {
+                const card = document.createElement('div');
+                card.className = 'feature-card';
+                card.innerHTML = `<i class="fas fa-question-circle"></i><h3>${q.title}</h3><p style="color:var(--muted);">${q.questions.length} questions</p><div style="margin-top:0.75rem;"><button class='btn btn-primary' onclick="startQuiz('${q.id}')">Start Quiz</button></div>`;
+                list.appendChild(card);
+            });
+        }
+
+        // Quiz modal handling
+        let currentQuiz = null;
+        function startQuiz(quizId) {
+            if (!requireLogin()) return;
+            currentQuiz = QUIZZES.find(x=>x.id===quizId);
+            if (!currentQuiz) return;
+            document.getElementById('quizTitle').textContent = currentQuiz.title;
+            const body = document.getElementById('quizBody');
+            body.innerHTML = '';
+            currentQuiz.questions.forEach((ques, idx) => {
+                const qDiv = document.createElement('div');
+                qDiv.style.marginBottom = '1rem';
+                qDiv.innerHTML = `<p><strong>Q${idx+1}.</strong> ${ques.q}</p>`;
+                ques.choices.forEach((c,i)=>{
+                    const id = `q_${idx}_${i}`;
+                    qDiv.innerHTML += `<div><label><input type='radio' name='q_${idx}' value='${i}' id='${id}'> ${c}</label></div>`;
+                });
+                body.appendChild(qDiv);
+            });
+            document.getElementById('quizModal').style.display = 'flex';
+        }
+
+        function closeQuizModal(){ document.getElementById('quizModal').style.display='none'; }
+
+        function submitQuiz(){
+            if (!currentQuiz) return;
+            const answers = [];
+            let score = 0;
+            currentQuiz.questions.forEach((ques, idx)=>{
+                const nodes = document.getElementsByName('q_'+idx);
+                let picked = null;
+                for (const n of nodes) if (n.checked) picked = parseInt(n.value);
+                answers.push(picked);
+                if (picked === ques.a) score++;
+            });
+            const result = { quizId: currentQuiz.id, title: currentQuiz.title, score, total: currentQuiz.questions.length, date: new Date().toISOString() };
+            let results = JSON.parse(localStorage.getItem(KEY_QUIZ_RESULTS) || '[]');
+            results.unshift(result);
+            localStorage.setItem(KEY_QUIZ_RESULTS, JSON.stringify(results));
+
+            // Update recent results display
+            renderRecentResults();
+            closeQuizModal();
+            alert(`You scored ${score} / ${currentQuiz.questions.length}`);
+        }
+
+        // Booking
+        function openBookingModal(){
+            if (!requireLogin()) return;
+            document.getElementById('bookingModal').style.display='flex';
+        }
+        function closeBookingModal(){ document.getElementById('bookingModal').style.display='none'; }
+
+        function submitBooking(e){
+            e.preventDefault();
+            if (!requireLogin()) return;
+            const topic = document.getElementById('topic').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const booking = { topic, date, time, id: 'b_'+Date.now() };
+            const bookings = JSON.parse(localStorage.getItem(KEY_BOOKINGS) || '[]');
+            bookings.push(booking);
+            localStorage.setItem(KEY_BOOKINGS, JSON.stringify(bookings));
+            renderBookings();
+            closeBookingModal();
+            alert('Session booked! Check Upcoming Bookings.');
+        }
+
+        function renderBookings(){
+            const list = document.getElementById('bookingsList');
+            const bookings = JSON.parse(localStorage.getItem(KEY_BOOKINGS) || '[]');
+            list.innerHTML = '';
+            if (!bookings.length) {
+                list.innerHTML = '<div style="color:var(--muted);">No upcoming bookings</div>';
+                return;
+            }
+            bookings.forEach(b=>{
+                const el = document.createElement('div');
+                el.style.padding='0.5rem'; el.style.borderRadius='8px'; el.style.background='#f8f9fd';
+                el.innerHTML = `<strong>${b.topic}</strong><div style="color:var(--muted); font-size:0.9rem;">${b.date} ${b.time}</div>`;
+                list.appendChild(el);
+            });
+        }
+
+        // Recent results
+        function renderRecentResults(){
+            const el = document.getElementById('resultsList');
+            const results = JSON.parse(localStorage.getItem(KEY_QUIZ_RESULTS) || '[]');
+            el.innerHTML = '';
+            if (!results.length) {
+                el.innerHTML = '<div style="color:var(--muted);">No quiz attempts yet.</div>';
+                return;
+            }
+            results.slice(0,5).forEach(r=>{
+                const item = document.createElement('div');
+                item.style.padding='0.5rem'; item.style.borderRadius='8px'; item.style.background='#fff'; item.style.border='1px solid #eee';
+                item.innerHTML = `<strong>${r.title}</strong><div style="color:var(--muted);">${r.score} / ${r.total} — ${new Date(r.date).toLocaleString()}</div>`;
+                el.appendChild(item);
+            });
+        }
+
+        // Get Started flow
+        function startGetStarted(){
+            if (!requireLogin()) return;
+            document.getElementById('getStartedModal').style.display='flex';
+        }
+        function closeGetStarted(){ document.getElementById('getStartedModal').style.display='none'; }
+        function completeGetStarted(){
+            // mark user as started
+            const user = JSON.parse(localStorage.getItem(KEY_USER) || '{}');
+            user.started = true;
+            localStorage.setItem(KEY_USER, JSON.stringify(user));
+            closeGetStarted();
+            alert('Great — your starter plan is set. Check your Account for details.');
+        }
+
+        // Initialize dashboard on load
+        document.addEventListener('DOMContentLoaded', ()=>{
+            if (!isLoggedIn()) {
+                // redirect to account page so they can login
+                window.location.href = 'account.html';
+                return;
+            }
+
+            // show quizzes and existing data
+            openQuizList();
+            renderRecentResults();
+            renderBookings();
+
+            // show user name in title
+            const user = JSON.parse(localStorage.getItem('sb_user') || '{}');
+            if (user && user.name) {
+                document.getElementById('dashTitle').textContent = `Welcome back, ${user.name}`;
+            }
+        });
+
+        // Close modals by clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList && event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
