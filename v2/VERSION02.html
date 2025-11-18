@@ -31,17 +31,6 @@
                 </ul>
             </nav>
 
-            
-                <!-- Sub navigation placed at bottom of header (centered) -->
-                <nav class="sub-nav" aria-label="secondary navigation">
-                    <ul>
-                        <li><a href="studytips.html" class="active">Study Tips</a></li>
-                        <li><a href="essaywriting.html">Essay Writing</a></li>
-                        <li><a href="examprep.html">Exam Preparation</a></li>
-                        <li><a href="practicequestions.html">Practice Questions</a></li>
-                    </ul>
-                </nav>
-
             <div class="header-actions">
                 <div class="search-pill">
                     <button class="menu-btn" aria-hidden="true"><i class="fas fa-bars"></i></button>
@@ -58,8 +47,7 @@
         
         <div class="header-divider"></div>
     </header>
-<!-- secondary sub-nav has been moved into the header and is styled there -->
-    <!-- Auth Modals -->
+
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('login')">&times;</span>
@@ -207,7 +195,7 @@
         </section>
     </main>
 
-    <!-- Account Section -->
+   
     <div id="accountModal" class="modal">
         <div class="modal-content account-modal">
             <span class="close-btn" onclick="closeModal('account')">&times;</span>
@@ -319,7 +307,7 @@
     </div>
 
     <script>
-        // Modal functionality
+       
         function openModal(type) {
             document.getElementById(type + 'Modal').style.display = 'flex';
         }
@@ -333,23 +321,23 @@
             openModal(to);
         }
 
-        // Close modal when clicking outside
+        
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
         }
 
-        // Handle form submissions
+      
         function handleLogin(event) {
             event.preventDefault();
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
             
-            // Add your login logic here
+           
             console.log('Login:', { email, password });
             
-            // Close modal after successful login
+          
             closeModal('login');
         }
 
@@ -480,4 +468,5 @@
         });
     </script>
 </body>
+
 </html>
