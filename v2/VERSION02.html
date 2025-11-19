@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StudyBuddy — Study Smarter V2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="VERSION02.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="StudyBuddy - study tips, exam prep and practice questions for students">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="brand-logo">
+                <div class="brand-name">
+                    <span class="brand-study">Study</span>Buddy
+                </div>
+            </div>
+
+ <nav class="site-nav">
+                <ul>
+                    <li><a href="VERSION02.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                </ul>
+            </nav>
+
+            
+
+            <div class="header-actions">
+                <div class="search-pill">
+                    <button class="menu-btn" aria-hidden="true"><i class="fas fa-bars"></i></button>
+                    <input class="search-input" placeholder="Search for topics..." aria-label="Search">
+                    <button class="search-submit" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                        <span class="search-tooltip">Search</span>
+                    </button>
+                </div>
+                <button class="auth-btn login-btn" onclick="openModal('login')">Login</button>
+                <button class="auth-btn signup-btn" onclick="openModal('signup')">Sign Up</button>
+            </div>
+        </div>
+
+       
+        <div class="header-divider"></div>
+    </header>
+    <!-- Auth Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('login')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Login</button>
+                <p class="form-footer">
+                    Don't have an account? <a href="#" onclick="switchModal('login', 'signup')">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('signup')">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm" onsubmit="return handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Sign Up</button>
+                <p class="form-footer">
+                    Already have an account? <a href="#" onclick="switchModal('signup', 'login')">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="hero-left">
+                    <div class="badge">
+                        <i class="fas fa-star"></i>
+                        Learning Space #1
+                    </div>
+                    <h1 class="hero-title">We simplify learning <br>in <span class="accent">StudyBuddy.</span></h1>
+                    <p class="hero-lead">Your personal learning companion for better study habits, improved productivity, and academic success.</p>
+
+                    <div class="hero-ctas">
+                        <a class="btn btn-primary" href="#get-started" onclick="openModal('signup')">
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a class="btn btn-outline" href="#learn-more" onclick="scrollToLearnMore()">Learn More</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Topics</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="hero-circle">
+                        <div class="floating-elements">
+                            <span class="float-element book"><i class="fas fa-book"></i></span>
+                            <span class="float-element pencil"><i class="fas fa-pencil-alt"></i></span>
+                            <span class="float-element calculator"><i class="fas fa-calculator"></i></span>
+                        </div>
+                        <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="hero-owl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn-more" class="learn-more-section">
+            <div class="container">
+                <h2>Why Choose StudyBuddy?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Personalized Learning</h3>
+                        <p>Get customized study plans and resources tailored to your learning style and goals.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Study Groups</h3>
+                        <p>Connect with fellow students, share knowledge, and learn together in virtual study rooms.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your learning journey with detailed analytics and performance insights.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Flexible Schedule</h3>
+                        <p>Study at your own pace with 24/7 access to learning materials and resources.</p>
+                    </div>
+                </div>
+
+                <div class="steps-section">
+                    <h2>How to Get Started</h2>
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>Create an Account</h3>
+                            <p>Sign up for free and set up your student profile</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h3>Choose Your Topics</h3>
+                            <p>Select the subjects and topics you want to study</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h3>Start Learning</h3>
+                            <p>Access study materials and join study groups</p>
+                        </div>
+                    </div>
+                    <div class="cta-container">
+                        <button class="btn btn-primary" onclick="openModal('signup')">Create Your Account Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Account Section -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content account-modal">
+            <span class="close-btn" onclick="closeModal('account')">&times;</span>
+            <div class="account-header">
+                <div class="account-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2 id="accountName">Loading...</h2>
+                <p id="accountEmail" class="account-email">Loading...</p>
+            </div>
+
+            <div class="account-tabs">
+                <button class="tab-btn active" onclick="switchTab('profile')">Profile</button>
+                <button class="tab-btn" onclick="switchTab('settings')">Settings</button>
+                <button class="tab-btn" onclick="switchTab('progress')">Progress</button>
+            </div>
+
+            <div id="profileTab" class="tab-content active">
+                <form id="profileForm" onsubmit="return updateProfile(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="interests">Study Interests</label>
+                        <input type="text" id="interests" placeholder="e.g., Mathematics, Physics, Literature">
+                    </div>
+                    <button type="submit" class="auth-submit">Update Profile</button>
+                </form>
+            </div>
+
+            <div id="settingsTab" class="tab-content">
+                <form id="settingsForm" onsubmit="return updateSettings(event)">
+                    <div class="form-group">
+                        <label for="emailNotifications">Email Notifications</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="studyReminders">Study Reminders</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="studyReminders" checked>
+                            <span class="toggle-slider"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="timezone">Timezone</label>
+                        <select id="timezone" required>
+                            <option value="UTC">UTC</option>
+                            <option value="UTC-8">Pacific Time (PT)</option>
+                            <option value="UTC-5">Eastern Time (ET)</option>
+                            <option value="UTC+1">Central European Time (CET)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="auth-submit">Save Settings</button>
+                </form>
+            </div>
+
+            <div id="progressTab" class="tab-content">
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Study Time</h3>
+                        <p class="stat-value">24.5 hrs</p>
+                        <p class="stat-label">This Month</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Tasks Completed</h3>
+                        <p class="stat-value">42</p>
+                        <p class="stat-label">Total</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Points Earned</h3>
+                        <p class="stat-value">850</p>
+                        <p class="stat-label">Total</p>
+                    </div>
+                </div>
+                <div class="progress-chart">
+                    <h3>Study Activity</h3>
+                    <div class="activity-chart">
+                        <!-- Placeholder for chart -->
+                        <div class="chart-placeholder">
+                            <div class="bar" style="height: 60%"></div>
+                            <div class="bar" style="height: 80%"></div>
+                            <div class="bar" style="height: 40%"></div>
+                            <div class="bar" style="height: 90%"></div>
+                            <div class="bar" style="height: 70%"></div>
+                            <div class="bar" style="height: 50%"></div>
+                            <div class="bar" style="height: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account-actions">
+                <button class="logout-btn" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Log Out
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        function openModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'flex';
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'none';
+        }
+
+        function switchModal(from, to) {
+            closeModal(from);
+            openModal(to);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Handle form submissions
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Add your login logic here
+            console.log('Login:', { email, password });
+            
+            // Close modal after successful login
+            closeModal('login');
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            
+            // Add your signup logic here
+            console.log('Signup:', { name, email, password });
+            
+            // Close modal after successful signup
+            closeModal('signup');
+        }
+
+        // Account functionality
+        function openAccountModal() {
+            document.getElementById('accountModal').style.display = 'flex';
+            loadUserProfile();
+        }
+
+        function loadUserProfile() {
+            // Simulate loading user data
+            setTimeout(() => {
+                document.getElementById('accountName').textContent = 'John Doe';
+                document.getElementById('accountEmail').textContent = 'john.doe@example.com';
+                document.getElementById('fullName').value = 'John Doe';
+                document.getElementById('bio').value = 'Student passionate about learning';
+                document.getElementById('interests').value = 'Mathematics, Physics, Computer Science';
+            }, 500);
+        }
+
+        function switchTab(tabName) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Add active class to selected tab
+            const selectedBtn = document.querySelector(`.tab-btn[onclick="switchTab('${tabName}')"]`);
+            const selectedContent = document.getElementById(`${tabName}Tab`);
+            if (selectedBtn && selectedContent) {
+                selectedBtn.classList.add('active');
+                selectedContent.classList.add('active');
+            }
+        }
+
+        function updateProfile(event) {
+            event.preventDefault();
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                bio: document.getElementById('bio').value,
+                interests: document.getElementById('interests').value
+            };
+            
+            // Add your profile update logic here
+            console.log('Profile Update:', formData);
+            alert('Profile updated successfully!');
+        }
+
+        function updateSettings(event) {
+            event.preventDefault();
+            const formData = {
+                emailNotifications: document.getElementById('emailNotifications').checked,
+                studyReminders: document.getElementById('studyReminders').checked,
+                timezone: document.getElementById('timezone').value
+            };
+            
+            // Add your settings update logic here
+            console.log('Settings Update:', formData);
+            alert('Settings saved successfully!');
+        }
+
+        function handleLogout() {
+            // Add your logout logic here
+            console.log('Logging out...');
+            closeModal('account');
+            // Redirect to home or login page if needed
+        }
+
+        // Update profile button click handler
+        document.querySelector('.profile-btn').addEventListener('click', function() {
+            // Check if user is logged in (you'll need to implement this check)
+            const isLoggedIn = false; // Replace with actual login check
+            
+            if (isLoggedIn) {
+                openAccountModal();
+            } else {
+                openModal('login');
+            }
+        });
+
+        // Add smooth scroll behavior
+        function scrollToLearnMore() {
+            document.getElementById('learn-more').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add smooth scroll behavior for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#learn-more') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add hover animation for the hero circle
+        const heroCircle = document.querySelector('.hero-circle');
+        heroCircle.addEventListener('mousemove', (e) => {
+            const rect = heroCircle.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            heroCircle.style.setProperty('--mouse-x', `${x}px`);
+            heroCircle.style.setProperty('--mouse-y', `${y}px`);
+        });
+    </script>
+</body>
+</html>

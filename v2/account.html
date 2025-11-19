@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account Center - StudyBuddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="VERSION02.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="brand-logo">
+                <div class="brand-name"><span class="brand-study">Study</span>Buddy</div>
+            </div>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="VERSION02.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html" class="active">Account</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-pill">
+                    <input class="search-input" placeholder="Search for topics..." aria-label="Search">
+                    <button class="search-submit" aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+                <button class="profile-btn" aria-label="Profile"><i class="fas fa-user-circle"></i></button>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <main class="about-page" style="padding-top:88px;">
+        <section class="about-hero">
+            <div class="container">
+                <h1>Account Center</h1>
+                <p class="lead">Manage your profile, settings and track your progress.</p>
+            </div>
+        </section>
+
+        <section class="account-page" style="padding: 2rem;">
+            <div class="container">
+                <div class="account-grid" style="display:grid; grid-template-columns: 360px 1fr; gap:2rem;">
+
+                    <!-- Left column: summary -->
+                    <aside class="account-summary" style="background:var(--white); padding:1.5rem; border-radius:12px; box-shadow:var(--shadow-md);">
+                        <div style="text-align:center;">
+                            <div style="width:96px; height:96px; margin:0 auto; border-radius:50%; background:rgba(90,160,224,0.08); display:flex; align-items:center; justify-content:center;">
+                                <i class="fas fa-user-circle" style="font-size:56px; color:var(--accent);"></i>
+                            </div>
+                            <h3 id="acctName" style="margin-top:1rem;">John Doe</h3>
+                            <p id="acctEmail" style="color:var(--muted);">john.doe@example.com</p>
+                        </div>
+
+                        <div style="margin-top:1.5rem; display:flex; gap:0.5rem; flex-direction:column;">
+                            <button class="btn btn-outline" onclick="document.getElementById('profileTabButton').click()">Edit Profile</button>
+                            <button class="btn btn-outline" onclick="document.getElementById('settingsTabButton').click()">Settings</button>
+                            <button class="btn btn-outline" onclick="document.getElementById('progressTabButton').click()">View Progress</button>
+                        </div>
+
+                        <div style="margin-top:1.5rem;">
+                            <h4 style="margin-bottom:0.5rem;">Quick Stats</h4>
+                            <div style="display:flex; gap:0.75rem;">
+                                <div style="flex:1; background:#f8f9fd; padding:0.75rem; border-radius:8px; text-align:center;">
+                                    <div style="font-weight:700;">24.5h</div>
+                                    <div style="color:var(--muted); font-size:0.85rem;">This month</div>
+                                </div>
+                                <div style="flex:1; background:#f8f9fd; padding:0.75rem; border-radius:8px; text-align:center;">
+                                    <div style="font-weight:700;">42</div>
+                                    <div style="color:var(--muted); font-size:0.85rem;">Tasks</div>
+                                </div>
+                            </div>
+                            <div style="margin-top:0.75rem; background:#f8f9fd; padding:0.75rem; border-radius:8px; text-align:center;">
+                                <div style="font-weight:700;">850</div>
+                                <div style="color:var(--muted); font-size:0.85rem;">Points</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:1.5rem; text-align:center;">
+                            <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+                        </div>
+                    </aside>
+
+                    <!-- Right column: tabs -->
+                    <div style="min-height:400px;">
+                        <div class="account-tabs" style="margin-bottom:1rem;">
+                            <button id="profileTabButton" class="tab-btn active" onclick="switchTab('profile')">Profile</button>
+                            <button id="settingsTabButton" class="tab-btn" onclick="switchTab('settings')">Settings</button>
+                            <button id="progressTabButton" class="tab-btn" onclick="switchTab('progress')">Progress</button>
+                        </div>
+
+                        <div id="profileTab" class="tab-content active" style="background:var(--white); padding:1.5rem; border-radius:12px; box-shadow:var(--shadow-md);">
+                            <form id="profileForm" onsubmit="return updateProfile(event)">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="interests">Study Interests</label>
+                                    <input type="text" id="interests" placeholder="e.g., Mathematics, Physics">
+                                </div>
+                                <button type="submit" class="auth-submit">Update Profile</button>
+                            </form>
+                        </div>
+
+                        <div id="settingsTab" class="tab-content" style="display:none; background:var(--white); padding:1.5rem; border-radius:12px; box-shadow:var(--shadow-md);">
+                            <form id="settingsForm" onsubmit="return updateSettings(event)">
+                                <div class="form-group">
+                                    <label for="emailNotifications">Email Notifications</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="emailNotifications" checked>
+                                        <span class="toggle-slider"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="studyReminders">Study Reminders</label>
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="studyReminders" checked>
+                                        <span class="toggle-slider"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="timezone">Timezone</label>
+                                    <select id="timezone" required>
+                                        <option value="UTC">UTC</option>
+                                        <option value="UTC-8">Pacific Time (PT)</option>
+                                        <option value="UTC-5">Eastern Time (ET)</option>
+                                        <option value="UTC+1">Central European Time (CET)</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="auth-submit">Save Settings</button>
+                            </form>
+                        </div>
+
+                        <div id="progressTab" class="tab-content" style="display:none; background:var(--white); padding:1.5rem; border-radius:12px; box-shadow:var(--shadow-md);">
+                            <div class="progress-stats">
+                                <div class="stat-card">
+                                    <i class="fas fa-clock"></i>
+                                    <h3>Study Time</h3>
+                                    <p class="stat-value">24.5 hrs</p>
+                                    <p class="stat-label">This Month</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-tasks"></i>
+                                    <h3>Tasks Completed</h3>
+                                    <p class="stat-value">42</p>
+                                    <p class="stat-label">Total</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-star"></i>
+                                    <h3>Points Earned</h3>
+                                    <p class="stat-value">850</p>
+                                    <p class="stat-label">Total</p>
+                                </div>
+                            </div>
+
+                            <div class="progress-chart">
+                                <h3>Study Activity</h3>
+                                <div class="activity-chart">
+                                    <div class="chart-placeholder">
+                                        <div class="bar" style="height:60%"></div>
+                                        <div class="bar" style="height:80%"></div>
+                                        <div class="bar" style="height:40%"></div>
+                                        <div class="bar" style="height:90%"></div>
+                                        <div class="bar" style="height:70%"></div>
+                                        <div class="bar" style="height:50%"></div>
+                                        <div class="bar" style="height:75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Auth Modals (login/signup) -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('login')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Login</button>
+                <p class="form-footer">Don't have an account? <a href="#" onclick="switchModal('login','signup')">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('signup')">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm" onsubmit="return handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Sign Up</button>
+                <p class="form-footer">Already have an account? <a href="#" onclick="switchModal('signup','login')">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // --- Local storage keys ---
+        const KEY_LOGGED_IN = 'sb_loggedIn';
+        const KEY_USER = 'sb_user';
+        const KEY_PROFILE = 'sb_profile';
+        const KEY_SETTINGS = 'sb_settings';
+        const KEY_ACTIVITY = 'sb_activity';
+
+        // Utility: check login
+        function isLoggedIn() {
+            return localStorage.getItem(KEY_LOGGED_IN) === 'true';
+        }
+
+        function openModal(type) {
+            const el = document.getElementById(type + 'Modal');
+            if (el) el.style.display = 'flex';
+        }
+
+        function closeModal(type) {
+            const el = document.getElementById(type + 'Modal');
+            if (el) el.style.display = 'none';
+        }
+
+        function switchModal(from, to) {
+            closeModal(from);
+            openModal(to);
+        }
+
+        // Login / Signup handlers (simulate auth)
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Simple simulation: accept any credentials
+            const name = email.split('@')[0].replace(/\.|\_/g, ' ');
+            const user = { name: capitalizeWords(name), email };
+            localStorage.setItem(KEY_USER, JSON.stringify(user));
+            localStorage.setItem(KEY_LOGGED_IN, 'true');
+
+            // ensure defaults exist for profile, settings, activity
+            if (!localStorage.getItem(KEY_PROFILE)) {
+                localStorage.setItem(KEY_PROFILE, JSON.stringify({ bio: '', interests: '' }));
+            }
+            if (!localStorage.getItem(KEY_SETTINGS)) {
+                localStorage.setItem(KEY_SETTINGS, JSON.stringify({ emailNotifications: true, studyReminders: true, timezone: 'UTC' }));
+            }
+            if (!localStorage.getItem(KEY_ACTIVITY)) {
+                // default sample activity (7 days)
+                localStorage.setItem(KEY_ACTIVITY, JSON.stringify([60,80,40,90,70,50,75]));
+            }
+
+            closeModal('login');
+            loadUserProfilePage();
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+
+            const user = { name, email };
+            localStorage.setItem(KEY_USER, JSON.stringify(user));
+            localStorage.setItem(KEY_LOGGED_IN, 'true');
+
+            // initialize empty profile and settings
+            localStorage.setItem(KEY_PROFILE, JSON.stringify({ bio: '', interests: '' }));
+            localStorage.setItem(KEY_SETTINGS, JSON.stringify({ emailNotifications: true, studyReminders: true, timezone: 'UTC' }));
+            localStorage.setItem(KEY_ACTIVITY, JSON.stringify([0,0,0,0,0,0,0]));
+
+            closeModal('signup');
+            loadUserProfilePage();
+        }
+
+        function capitalizeWords(s) {
+            return s.replace(/\b\w/g, c => c.toUpperCase());
+        }
+
+        // Load profile/settings/activity from localStorage into the page
+        function loadUserProfilePage() {
+            if (!isLoggedIn()) {
+                // show login modal if not logged in
+                openModal('login');
+                return;
+            }
+
+            const user = JSON.parse(localStorage.getItem(KEY_USER) || '{}');
+            const profile = JSON.parse(localStorage.getItem(KEY_PROFILE) || '{}');
+            const settings = JSON.parse(localStorage.getItem(KEY_SETTINGS) || '{}');
+            const activity = JSON.parse(localStorage.getItem(KEY_ACTIVITY) || '[]');
+
+            // Fill header/summary
+            document.getElementById('acctName').textContent = user.name || 'Your Name';
+            document.getElementById('acctEmail').textContent = user.email || '';
+
+            // Fill profile tab
+            document.getElementById('fullName').value = user.name || '';
+            document.getElementById('bio').value = profile.bio || '';
+            document.getElementById('interests').value = profile.interests || '';
+
+            // Fill settings
+            document.getElementById('emailNotifications').checked = !!settings.emailNotifications;
+            document.getElementById('studyReminders').checked = !!settings.studyReminders;
+            document.getElementById('timezone').value = settings.timezone || 'UTC';
+
+            // Fill quick stats if present (example: derive from activity)
+            updateQuickStats(activity);
+
+            // Initialize chart
+            initActivityChart(activity);
+        }
+
+        function updateQuickStats(activity) {
+            // derive simple stats
+            const totalHours = (activity.reduce((a,b)=>a+b,0)/10).toFixed(1); // fake conversion
+            const tasks = Math.max(0, Math.round(activity.reduce((a,b)=>a+b,0)/30));
+            const points = Math.max(0, Math.round(activity.reduce((a,b)=>a+b,0)/2));
+
+            const summary = document.querySelector('.account-summary');
+            if (summary) {
+                // update the stat blocks in DOM
+                const statBlocks = summary.querySelectorAll('div[style*="font-weight:700;"]');
+                if (statBlocks && statBlocks.length >= 3) {
+                    statBlocks[0].textContent = totalHours + 'h';
+                    statBlocks[1].textContent = tasks;
+                    statBlocks[2].textContent = points;
+                }
+            }
+        }
+
+        // Save profile changes to localStorage
+        function updateProfile(event) {
+            event.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const bio = document.getElementById('bio').value;
+            const interests = document.getElementById('interests').value;
+
+            // update user object as well
+            const user = JSON.parse(localStorage.getItem(KEY_USER) || '{}');
+            user.name = fullName || user.name;
+            localStorage.setItem(KEY_USER, JSON.stringify(user));
+
+            localStorage.setItem(KEY_PROFILE, JSON.stringify({ bio, interests }));
+
+            document.getElementById('acctName').textContent = fullName;
+            alert('Profile updated successfully!');
+        }
+
+        // Save settings to localStorage
+        function updateSettings(event) {
+            event.preventDefault();
+            const emailNotifications = document.getElementById('emailNotifications').checked;
+            const studyReminders = document.getElementById('studyReminders').checked;
+            const timezone = document.getElementById('timezone').value;
+
+            localStorage.setItem(KEY_SETTINGS, JSON.stringify({ emailNotifications, studyReminders, timezone }));
+            alert('Settings saved successfully!');
+        }
+
+        function handleLogout() {
+            localStorage.removeItem(KEY_LOGGED_IN);
+            // Optionally keep user data but mark logged out
+            alert('You have been logged out.');
+            window.location.href = 'VERSION02.html';
+        }
+
+        // Chart initialization — uses Chart.js if present. If not present, chart canvas remains blank.
+        let activityChart = null;
+        function initActivityChart(activity) {
+            const canvasId = 'activityChartCanvas';
+            // replace placeholder with canvas if not already
+            const placeholder = document.querySelector('.chart-placeholder');
+            if (placeholder) {
+                const canvas = document.createElement('canvas');
+                canvas.id = canvasId;
+                canvas.style.maxWidth = '100%';
+                placeholder.parentNode.replaceChild(canvas, placeholder);
+            }
+
+            const ctx = document.getElementById(canvasId);
+            if (!ctx) return;
+
+            const labels = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+            const data = activity && activity.length ? activity : [60,80,40,90,70,50,75];
+
+            if (window.Chart) {
+                if (activityChart) activityChart.destroy();
+                activityChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels,
+                        datasets: [{
+                            label: 'Study minutes',
+                            data,
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            } else {
+                // no Chart.js — leave a simple bar list
+                const el = document.getElementById(canvasId);
+                if (el) {
+                    el.parentNode.innerHTML = '<div style="padding:1rem;color:var(--muted);">Install Chart.js CDN to see a chart here.</div>';
+                }
+            }
+        }
+
+        // Small helper to attach profile button behavior if present
+        const headerProfileBtn = document.querySelector('.profile-btn');
+        if (headerProfileBtn) {
+            headerProfileBtn.addEventListener('click', () => {
+                if (isLoggedIn()) {
+                    // already on account page — scroll to top
+                    window.location.href = 'account.html';
+                } else {
+                    openModal('login');
+                }
+            });
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target.classList && e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            if (isLoggedIn()) {
+                loadUserProfilePage();
+            } else {
+                // show login modal on account page if not signed in
+                openModal('login');
+            }
+        });
+    </script>
+</body>
+</html>
