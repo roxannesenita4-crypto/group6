@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -25,6 +25,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="account.html">Account</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
                 </ul>
             </nav>
 
@@ -42,7 +43,7 @@
         <div class="header-divider"></div>
     </header>
 
-    <main class="services-page">
+    <main class="services-page">          
         <section class="services-hero">
             <div class="container">
                 <h1>Our Services</h1>
@@ -109,9 +110,9 @@
                 </div>
             </div>
         </section>
-    </main>
+    </main> -->
 
-    <!-- Auth Modals -->
+    <!-- Auth Modals 
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('login')">&times;</span>
@@ -207,4 +208,170 @@
         }
     </script>
 </body>
+</html> -->
+<!-- ...existing code... -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StudyBuddy Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="VERSION02.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="brand-logo">
+                <div class="brand-name">
+                    <span class="brand-study">Study</span>Buddy
+                </div>
+            </div>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="VERSION02.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="account.html">Account</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-pill">
+                    <input class="search-input" placeholder="Search for topics..." aria-label="Search">
+                    <button class="search-submit" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <!-- JS removed: use fragment links to trigger CSS-only modals -->
+                <a class="auth-btn login-btn" href="#loginModal">Login</a>
+                <a class="auth-btn signup-btn" href="#signupModal">Sign Up</a>
+            </div>
+        </div>
+        <div class="header-divider"></div>
+    </header>
+
+    <main class="services-page">          
+        <section class="services-hero">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p class="lead">Comprehensive Learning Solutions for Every Student</p>
+            </div>
+        </section>
+
+        <section class="services-grid">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Smart Study Plans</h3>
+                    <p>Personalized learning paths tailored to your goals and learning style.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Customized study schedules</li>
+                        <li><i class="fas fa-check"></i> Progress tracking</li>
+                        <li><i class="fas fa-check"></i> Adaptive learning</li>
+                    </ul>
+                    <a class="service-btn" href="#signupModal">Get Started</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Live Tutoring</h3>
+                    <p>Connect with expert tutors for one-on-one learning sessions.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Expert instructors</li>
+                        <li><i class="fas fa-check"></i> Interactive sessions</li>
+                        <li><i class="fas fa-check"></i> Flexible scheduling</li>
+                    </ul>
+                    <a class="service-btn" href="#signupModal">Book a Session</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Practice Tests</h3>
+                    <p>Comprehensive practice tests with detailed explanations and analytics.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Exam preparation</li>
+                        <li><i class="fas fa-check"></i> Performance analysis</li>
+                        <li><i class="fas fa-check"></i> Topic mastery</li>
+                    </ul>
+                    <a class="service-btn" href="#signupModal">Try Now</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Study Groups</h3>
+                    <p>Join or create study groups to learn collaboratively with peers.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Peer learning</li>
+                        <li><i class="fas fa-check"></i> Group discussions</li>
+                        <li><i class="fas fa-check"></i> Resource sharing</li>
+                    </ul>
+                    <a class="service-btn" href="#signupModal">Join Groups</a>
+                </div>
+            </div>
+        </section>
+    </main> 
+
+    <!-- Auth Modals (CSS-only: visibility controlled by :target) -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <a class="close-btn" href="#" aria-label="Close">&times;</a>
+            <h2>Login</h2>
+            <form id="loginForm" method="post">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Login</button>
+                <p class="form-footer">
+                    Don't have an account? <a href="#signupModal">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <a class="close-btn" href="#" aria-label="Close">&times;</a>
+            <h2>Sign Up</h2>
+            <form id="signupForm" method="post">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Sign Up</button>
+                <p class="form-footer">
+                    Already have an account? <a href="#loginModal">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+</body>
 </html>
+<!-- ...existing code... -->

@@ -1,0 +1,69 @@
+/* ...existing code... */
+/* Basic reset and fonts */
+:root{
+    --bg:#f7f9fb;
+    --accent:#5b6ef6;
+    --muted:#7b8794;
+    --card:#ffffff;
+    --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#222}
+
+/* Header */
+.site-header{background:#fff;position:sticky;top:0;z-index:40;box-shadow:0 1px 0 rgba(0,0,0,0.05)}
+.header-container{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px}
+.logo-container{display:flex;align-items:center;gap:10px}
+.brand-logo{width:44px;height:44px;object-fit:contain}
+.brand-name{font-weight:600;font-size:1.15rem}
+.brand-study{color:var(--accent)}
+.site-nav ul{list-style:none;display:flex;gap:14px}
+.site-nav a{color:#333;text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:500}
+.site-nav a.active{background:rgba(91,110,246,0.08);color:var(--accent)}
+.header-actions{display:flex;align-items:center;gap:12px}
+.search-pill{display:flex;align-items:center;background:#f1f4ff;border-radius:999px;padding:6px 8px}
+.search-input{border:0;background:transparent;padding:8px;min-width:180px;outline:none}
+.search-submit{border:0;background:transparent;padding:8px;color:var(--muted);cursor:pointer}
+.auth-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;text-decoration:none;color:#fff;background:var(--accent);font-weight:600}
+.auth-btn.login-btn{background:#4b59e9}
+.auth-btn.signup-btn{background:var(--accent)}
+
+/* Main */
+.container{max-width:1100px;margin:0 auto;padding:36px 18px}
+.services-hero{padding:36px 0;text-align:center}
+.services-hero h1{font-size:2rem;margin-bottom:8px}
+.services-hero .lead{color:var(--muted);font-size:1rem}
+
+/* Grid */
+.services-grid .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.service-card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(29,40,63,0.04);display:flex;flex-direction:column;gap:12px;min-height:320px}
+.service-icon{font-size:28px;color:var(--accent);width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(91,110,246,0.08)}
+.service-card h3{margin-top:6px;font-size:1.05rem}
+.service-card p{color:var(--muted);font-size:0.95rem}
+.service-features{list-style:none;padding-left:0;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.service-features i{color:green;margin-right:8px}
+.service-btn{display:inline-block;margin-top:auto;padding:10px 12px;border-radius:8px;text-decoration:none;background:var(--accent);color:#fff;font-weight:600;text-align:center}
+
+/* Modal (CSS-only using :target) */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,0.45);z-index:80}
+.modal:target{display:flex}
+.modal-content{width:100%;max-width:420px;background:#fff;border-radius:12px;padding:22px;position:relative;box-shadow:0 12px 40px rgba(5,15,40,0.2)}
+.close-btn{position:absolute;right:12px;top:8px;font-size:24px;color:#666;text-decoration:none}
+.modal h2{margin-bottom:12px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.form-group label{font-size:0.9rem;color:#333}
+.form-group input{padding:10px;border:1px solid #e6e9ef;border-radius:8px;outline:none}
+.auth-submit{width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:#fff;font-weight:600}
+
+/* Footer-ish helpers */
+.form-footer{margin-top:10px;font-size:0.9rem;color:var(--muted)}
+.form-footer a{text-decoration:none;color:var(--accent);font-weight:600}
+
+/* Responsive */
+@media (max-width:720px){
+    .header-container{padding:12px;gap:8px}
+    .site-nav{display:none}
+    .search-input{min-width:90px}
+}
+
+/* ...existing code... */
