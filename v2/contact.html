@@ -18,7 +18,16 @@
                 </div>
             </div>
 
-            <nav class="site-nav">
+             <nav class="site-nav">
+        <ul>
+            <li><a href="studytips.html">Study Tips</a></li>
+            <li><a href="essaywriting.html">Essay Writing</a></li>
+            <li><a href="examprep.html">Exam Preparation</a></li>
+            <li><a href="practicequestions.html">Practice Questions</a></li>
+        </ul>
+    </nav>
+
+            <!-- <nav class="site-nav">
                 <ul>
                     <li><a href="VERSION02.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
@@ -27,20 +36,33 @@
                     <li><a href="account.html">Account</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                 </ul>
-            </nav>
+            </nav> -->
 
-            <div class="header-actions">
+           <div class="header-actions">
                 <div class="search-pill">
+                    <button class="menu-btn" aria-hidden="true"><i class="fas fa-bars"></i></button>
                     <input class="search-input" placeholder="Search for topics..." aria-label="Search">
                     <button class="search-submit" aria-label="Search">
                         <i class="fas fa-search"></i>
+                        <span class="search-tooltip">Search</span>
                     </button>
                 </div>
                 <button class="auth-btn login-btn" onclick="openModal('login')">Login</button>
                 <button class="auth-btn signup-btn" onclick="openModal('signup')">Sign Up</button>
-            </div>
-        </div>
-        <div class="header-divider"></div>
+            
+             
+                <!-- Dropdown Menu -->
+                <div class="dropdown-menu-container">
+                    <button class="dropdown-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+                    <div class="dropdown-content">
+                        <a href="VERSION02.html"><i class="fas fa-home"></i> Home</a>
+                        <a href="services.html"><i class="fas fa-cogs"></i> Services</a>
+                        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                        <a href="account.html"><i class="fas fa-user"></i> Account</a>
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </div>
+                </div>
     </header>
 
     <main class="contact-page">
@@ -211,5 +233,84 @@
             closeModal('signup');
         }
     </script>
+    
+   <!-- Footer: add here (after </script> and before </body>) -->
+    <footer class="site-footer">
+        <div class="footer-inner container">
+            <div class="footer-brand">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="footer-logo">
+                <p class="footer-slogan">StudyBuddy — Learn smarter, not harder.</p>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="VERSION02.html">Get Started</a></li>
+                        <li><a href="VERSION02.html">Learn More</a></li>
+                       
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#study-plans">Smart Study Plans</a></li>
+                        <li><a href="services.html#tutoring">Live Tutoring</a></li>
+                        <li><a href="services.html#practice-tests">Practice Tests</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="services.html#study-plans">Smart Learning</a></li>
+                        <li><a href="services.html#tutoring">Community</a></li>
+                        <li><a href="services.html#practice-tests">Track Progress</a></li>
+                    </ul>
+                </div>
+                
+                
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="hahaha:support@studybuddy.example">support@studybuddy.example</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="account.html">Profile</a></li>
+                        <li><a href="account.html">Settings</a></li>
+                        <li><a href="account.html">Progress</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>Dashboard</h4>
+                    <ul>
+                        <li><a href="dashboard.html">Get Started</a></li>
+                        <li><a href="dashboard.html">Take a Quiz</a></li>
+                        <li><a href="dashboard.html">Book Session</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="socials">
+                    <a href="#" aria-label="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">© 2025 StudyBuddy — All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

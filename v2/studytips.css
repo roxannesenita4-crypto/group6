@@ -1,0 +1,119 @@
+.study-tips-page {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.study-tips-page .content-box {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.study-tips-page .content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.study-tips-page ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.study-tips-page ul li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.study-tips-page ul li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Style for active navigation link */
+nav a.active {
+    background-color: var(--primary-color);
+    color: rgb(255, 255, 255);
+}
+
+/* ...existing code... */
+
+/* Study Tips page styles — stacked layout like EssayWriting */
+.study-tips-page {
+    padding-top: 140px;
+    padding-bottom: 60px;
+    background: #f6f9fc;
+    -webkit-font-smoothing: antialiased;
+}
+
+.study-tips-page .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.study-tips-page .page-title {
+    font-size: 2.4rem;
+    line-height: 1.1;
+    color: #0b3b61;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.study-tips-page .page-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.study-tips-page .content-box {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(13,28,63,0.06);
+    border: 1px solid rgba(13,28,63,0.04);
+    width: 100%;
+}
+
+.study-tips-page .section-heading {
+    font-size: 1.05rem;
+    color: #0b2f48;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.study-tips-page .content-box .section-heading::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: linear-gradient(90deg,#f7b24a,#e69c32);
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.study-tips-page .content-box ul {
+    margin-left: 1rem;
+    color: #425b64;
+    line-height: 1.7;
+    padding-left: 0;
+}
+.study-tips-page .content-box ul li { margin-bottom: 0.45rem; }
+
+.header-container { z-index: 1200; }
+
+@media (max-width: 900px) {
+    .study-tips-page .page-title { font-size: 1.9rem; }
+    .study-tips-page .container { padding: 1.5rem; }
+    .study-tips-page { padding-top: 110px; }
+}
+
+/* ...existing code... */
+

@@ -1,0 +1,342 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Questions - StudyBuddy</title>
+    <link rel="stylesheet" href="studybuddy.css">
+    <link rel="stylesheet" href="practicequestions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+         <a href="studybuddy.html" class="back-arrow" title="Back to Homepage">
+            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+            <span class="sr-only">Back</span>
+        </a>
+        <div class="logo">
+            <i class="fas fa-book-reader"></i>
+            <h1>StudyBuddy</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search questions...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="studytips.html">Study Tips</a></li>
+            <li><a href="essaywriting.html">Essay Writing</a></li>
+            <li><a href="examprep.html">Exam Preparation</a></li>
+            <li><a href="practicequestions.html" class="active">Practice Questions</a></li>
+        </ul>
+    </nav>
+
+    <main class="practice-questions-page">
+        <h1 class="page-title">Practice Questions</h1>
+
+        <div class="scoreboard" aria-hidden="false">
+            <div class="score-item">Submitted: <span id="submitted-count">0</span></div>
+            <div class="score-item">Correct: <span id="correct-count">0</span></div>
+        </div>
+
+        <div class="subject-filters">
+            <button class="filter-btn active">All Subjects</button>
+            <button class="filter-btn">Mathematics</button>
+            <button class="filter-btn">Science</button>
+            <button class="filter-btn">English</button>
+            <button class="filter-btn">History</button>
+        </div>
+
+        <div class="questions-container">
+            <div class="question-card" data-qid="math-1">
+                <h3>Mathematics Question 1</h3>
+                <p>Solve for x: 2x + 5 = 13</p>
+                <button class="show-answer-btn">Show Answer</button>
+                <div class="answer">x = 4</div>
+                <label for="answer-math-1" class="sr-only">Your answer for Mathematics Question 1</label>
+                <textarea id="answer-math-1" class="student-answer" rows="4" placeholder="Type your answer here..."></textarea>
+                <button class="submit-answer-btn">Submit Answer</button>
+                <div class="feedback" aria-live="polite"></div>
+            </div>
+
+            <div class="question-card" data-qid="sci-1">
+                <h3>Science Question 1</h3>
+                <p>What is the chemical symbol for gold?</p>
+                <button class="show-answer-btn">Show Answer</button>
+                <div class="answer">Au</div>
+                <label for="answer-sci-1" class="sr-only">Your answer for Science Question 1</label>
+                <textarea id="answer-sci-1" class="student-answer" rows="4" placeholder="Type your answer here..."></textarea>
+                <button class="submit-answer-btn">Submit Answer</button>
+                <div class="feedback" aria-live="polite"></div>
+            </div>
+
+            <div class="question-card" data-qid="eng-1">
+                <h3>English Question 1</h3>
+                <p>Identify the parts of speech in: "The quick brown fox jumps."</p>
+                <button class="show-answer-btn">Show Answer</button>
+                <div class="answer">The (article), quick (adjective), brown (adjective), fox (noun), jumps (verb)</div>
+                <label for="answer-eng-1" class="sr-only">Your answer for English Question 1</label>
+                <textarea id="answer-eng-1" class="student-answer" rows="4" placeholder="Type your answer here..."></textarea>
+                <button class="submit-answer-btn">Submit Answer</button>
+                <div class="feedback" aria-live="polite"></div>
+            </div> -->
+
+            <!-- New quiz question added for students 
+            <div class="question-card" data-qid="history-1">
+                <h3>History Question 1</h3>
+                <p>Who was the first President of the United States?</p>
+                <button class="show-answer-btn">Show Answer</button>
+                <div class="answer">George Washington</div>
+                <label for="answer-hist-1" class="sr-only">Your answer for History Question 1</label>
+                <textarea id="answer-hist-1" class="student-answer" rows="4" placeholder="Type your answer here..."></textarea>
+                <button class="submit-answer-btn">Submit Answer</button>
+                <div class="feedback" aria-live="polite"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 StudyBuddy - Your Learning Companion</p>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Practice Questions - StudyBuddy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="VERSION02.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Practice Questions page override */
+        .practice-questions-page {
+            padding-top: 80px !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="brand-logo">
+                <div class="brand-name">
+                    <span class="brand-study">Study</span>Buddy
+                </div>
+            </div>
+
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="studytips.html">Study Tips</a></li>
+                    <li><a href="essaywriting.html">Essay Writing</a></li>
+                    <li><a href="examprep.html">Exam Preparation</a></li>
+                    <li><a href="practicequestions.html" class="active">Practice Questions</a></li>
+                
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-pill">
+                    <input class="search-input" placeholder="Search for topics..." aria-label="Search">
+                    <button class="search-submit" aria-label="Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <a class="auth-btn login-btn" href="#loginModal">Login</a>
+                <a class="auth-btn signup-btn" href="#signupModal">Sign Up</a>
+                
+                <!-- Dropdown Menu -->
+                <div class="dropdown-menu-container">
+                    <button class="dropdown-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+                    <div class="dropdown-content">
+                        <a href="VERSION02.html"><i class="fas fa-home"></i> Home</a>
+                        <a href="services.html"><i class="fas fa-cogs"></i> Services</a>
+                        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                        <a href="account.html"><i class="fas fa-user"></i> Account</a>
+                        <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="practice-questions-page">
+        <div class="container">
+            <h1 class="page-title">Practice Questions</h1>
+            
+            <div class="page-content">
+                <div class="content-box">
+                    <h2 class="section-heading">Mathematics Questions</h2>
+                    <ul>
+                        <li>Solve for x: 2x + 5 = 13</li>
+                        <li>What is the area of a circle with radius 5?</li>
+                        <li>Simplify: (3x² + 2x) / x</li>
+                        <li>Find the slope of the line through (2,3) and (4,7)</li>
+                    </ul>
+                </div>
+
+                <div class="content-box">
+                    <h2 class="section-heading">Science Questions</h2>
+                    <ul>
+                        <li>What is the chemical symbol for gold?</li>
+                        <li>Define photosynthesis</li>
+                        <li>What are the three states of matter?</li>
+                        <li>Explain the water cycle</li>
+                    </ul>
+                </div>
+
+                <div class="content-box">
+                    <h2 class="section-heading">English Questions</h2>
+                    <ul>
+                        <li>Identify parts of speech in: "The quick brown fox jumps"</li>
+                        <li>What is a metaphor?</li>
+                        <li>Define alliteration with an example</li>
+                        <li>Explain the theme of a story</li>
+                    </ul>
+                </div>
+
+                <div class="content-box">
+                    <h2 class="section-heading">History Questions</h2>
+                    <ul>
+                        <li>Who was the first President of the United States?</li>
+                        <li>In what year did World War II end?</li>
+                        <li>Name three ancient civilizations</li>
+                        <li>What was the main cause of the French Revolution?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Auth Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <a class="close-btn" href="#">&times;</a>
+            <h2>Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Login</button>
+                <p class="form-footer">
+                    Don't have an account? <a href="#signupModal">Sign up</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <a class="close-btn" href="#">&times;</a>
+            <h2>Sign Up</h2>
+            <form>
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="auth-submit">Sign Up</button>
+                <p class="form-footer">
+                    Already have an account? <a href="#loginModal">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner container">
+            <div class="footer-brand">
+                <img src="unnamed-removebg-preview.png" alt="StudyBuddy Owl" class="footer-logo">
+                <p class="footer-slogan">StudyBuddy — Learn smarter, not harder.</p>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Home</h4>
+                    <ul>
+                        <li><a href="VERSION02.html">Get Started</a></li>
+                        <li><a href="VERSION02.html">Learn More</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Smart Study Plans</a></li>
+                        <li><a href="services.html">Live Tutoring</a></li>
+                        <li><a href="services.html">Practice Tests</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="about.html">Community</a></li>
+                        <li><a href="about.html">Values</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="mailto:support@studybuddy.example">try@studybuddy.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="account.html">Profile</a></li>
+                        <li><a href="account.html">Settings</a></li>
+                        <li><a href="account.html">Progress</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Dashboard</h4>
+                    <ul>
+                        <li><a href="dashboard.html">Get Started</a></li>
+                        <li><a href="dashboard.html">Take a Quiz</a></li>
+                        <li><a href="dashboard.html">Book Session</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="socials">
+                    <a href="#" aria-label="youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">© 2025 StudyBuddy — All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
